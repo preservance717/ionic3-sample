@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
+import {AbstractControl, FormGroup, Validators, FormBuilder} from "@angular/forms";
+import {loginService} from "./login.service";
 
 /**
  * Generated class for the LoginPage page.
@@ -13,18 +15,51 @@ import {TabsPage} from "../tabs/tabs";
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers: [loginService]
 })
 export class LoginPage {
+  username: AbstractControl;
+  password: AbstractControl;
+  loginForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  shouldScroll:boolean = false;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private fb: FormBuilder,
+              private _service: loginService,
+              private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.buildForm();
   }
 
-  login(){
-    this.navCtrl.push(TabsPage)
+  buildForm() {
+    this.loginForm = this.fb.group({
+      'username': ['', Validators.compose([Validators.required])],
+      'password': ['', Validators.compose([Validators.required])]
+    });
+
+    this.username = this.loginForm.controls['username'];
+    this.password = this.loginForm.controls['password'];
   }
 
+  login() {
+    this._service.login(this.loginForm.value.username)
+      .then(res => {
+        if(res&&res.success){
+          this.navCtrl.push(TabsPage)
+        }else {
+          let toast = this.toastCtrl.create({
+            message: '用户名或密码不正确',
+            duration: 3000,
+            position: 'middle'
+          });
+
+          toast.present(toast);
+        }
+      });
+  }
 }
