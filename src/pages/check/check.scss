@@ -1,3 +1,54 @@
 page-check {
+  .back-button {
+    display: block;
+  }
+  ion-textarea {
+    border: 1px solid #eee;
+    border-radius: 10px;
+  }
+  .add {
+    width: 76px;
+    height: 76px;
+    font-size: 24px;
+  }
 
+  .photo-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    img {
+      width: 76px;
+      height: 76px;
+    }
+    margin: 5px 12px;
+    .photo-item {
+      margin-right: 5px;
+      position: relative;
+      width: 76px;
+      height: 76px;
+
+      .delete {
+        bottom: 42px;
+        right: -16px;
+        position: absolute;
+      }
+    }
+  }
+
+  .state-box {
+    display: flex;
+    justify-content: center;
+    .notificied {
+      margin-right: 40px;
+    }
+    .state {
+      background: rgba(128, 128, 128, 0.39);
+      border-radius: 14px;
+      //text-align: center;
+    }
+  }
+
+  .item.item-md .checkbox-md {
+    margin: 9px 6px 9px 4px;
+  }
 }

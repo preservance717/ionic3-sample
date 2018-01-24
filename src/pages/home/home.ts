@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, ModalController} from 'ionic-angular';
 import {CheckPage} from "../check/check";
 import {HomeService} from "./home.service";
 
@@ -10,7 +10,9 @@ import {HomeService} from "./home.service";
 })
 export class HomePage {
   name = 'woody';
-  constructor(public navCtrl: NavController, private _service:HomeService) {
+  constructor(public navCtrl: NavController,
+              private _service:HomeService,
+              public modalCtrl: ModalController) {
 
   }
 
@@ -26,8 +28,10 @@ export class HomePage {
     )
   }
 
-  start(){
-    this.navCtrl.push(CheckPage)
+  start(project){
+    // this.navCtrl.push(CheckPage)
+    let modal = this.modalCtrl.create(CheckPage, project);
+    modal.present();
   }
 
 }

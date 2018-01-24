@@ -1,20 +1,65 @@
-<!--
-  Generated template for the CheckPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>表单信息</ion-title>
-    <button (click)="goBack()">
-    </button>
-  </ion-navbar>
 
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">complete</span>
+        <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
+<ion-content no-bounce >
+  <div *ngIf="!bigImageSrc&&checkForm">
+    <form [formGroup]="checkForm" >
+      <ion-list>
+        <ion-item>
+          <ion-label floating>项目名称</ion-label>
+          <ion-input type="text" [formControl]="name"></ion-input>
+        </ion-item>
+        <ion-item style="border: 0px;">
+          <ion-label floating>详细内容</ion-label>
+          <ion-textarea rows="6" [formControl]="detail"></ion-textarea>
+        </ion-item>
+      </ion-list>
 
-<ion-content padding>
+      <div>
+        <span>上传附件</span>
+        <div class="photo-box">
+          <div *ngFor="let image of images" class="photo-item">
+            <img [src]="image.src" alt="picture" imageViewer="OTHER_IMAGE_URL"/>
+            <button class="delete" ion-button color="danger" clear (click)="deleteImg(image.src)">X</button>
+          </div>
+          <div class="photo-item">
+            <button (click)="openMenu()" class="add">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div >
+        <span>状态</span>
+        <div class="state-box">
+          <div class="notificied">
+            <ion-item class="state">
+              <ion-label>已通知</ion-label>
+              <ion-checkbox checked="true"></ion-checkbox>
+            </ion-item>
+          </div>
+          <div >
+            <ion-item class="state">
+              <ion-label>已整改</ion-label>
+              <ion-checkbox></ion-checkbox>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="bigImageSrc" class="big-img">
+    <img [src]="bigImageSrc" alt="原图" imageViewer (close)="callbackAfterImageViewerCloses()">
+  </div>
 </ion-content>

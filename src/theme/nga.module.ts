@@ -8,11 +8,14 @@ import {Name2AvatarPipe} from "./pipes/name2Avatar/name2Avatar.pipe";
 @NgModule({
   declarations:[
     NgaComponent,
-    Name2AvatarPipe
+    Name2AvatarPipe,
   ],
   imports:[],
+  entryComponents:[
+
+  ],
   exports:[
-    Name2AvatarPipe
+    Name2AvatarPipe,
   ]
 })
 

@@ -47,19 +47,20 @@ export class LoginPage {
   }
 
   login() {
-    this._service.login(this.loginForm.value.username)
-      .then(res => {
-        if(res&&res.success){
-          this.navCtrl.push(TabsPage)
-        }else {
-          let toast = this.toastCtrl.create({
-            message: '用户名或密码不正确',
-            duration: 3000,
-            position: 'middle'
-          });
-
-          toast.present(toast);
-        }
-      });
+    this.navCtrl.push(TabsPage)
+    // this._service.login(this.loginForm.value.username)
+    //   .then(res => {
+    //     if(res&&res.success){
+    //       this.navCtrl.push(TabsPage)
+    //     }else {
+    //       let toast = this.toastCtrl.create({
+    //         message: '用户名或密码不正确',
+    //         duration: 3000,
+    //         position: 'middle'
+    //       });
+    //
+    //       toast.present(toast);
+    //     }
+    //   });
   }
 }
