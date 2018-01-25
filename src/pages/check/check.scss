@@ -11,7 +11,12 @@ page-check {
     height: 76px;
     font-size: 24px;
   }
-
+  .label-title {
+    display: block;
+    margin: 10px 10px 0 10px;
+    font-size: 15px;
+    color: #999;
+  }
   .photo-box {
     display: flex;
     flex-direction: row;
