@@ -7,11 +7,20 @@
 </ion-header>
 
 <ion-content>
+  <div class="person-image">
+    <img src="../../assets/imgs/person.jpg" alt="">
+  </div>
+
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header>设置</ion-list-header>
     <ion-item>
       <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      关于账号
     </ion-item>
+    <ion-item>
+      <ion-icon name="ionic" item-start></ion-icon>
+      关于密码
+    </ion-item>
+    <button ion-button round class="logout" (click)="logout()">退出登录</button>
   </ion-list>
 </ion-content>
