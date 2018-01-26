@@ -127,7 +127,7 @@ export class CheckPage {
   setOptions(srcType) {
     const options: CameraOptions = {
       // Some common settings are 20, 50, and 100
-      quality: 100,
+      quality: 20,
       destinationType: this.camera.DestinationType.DATA_URL,
       // In this app, dynamically set the picture source, Camera or photo gallery
       sourceType: srcType,
