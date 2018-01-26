@@ -19,6 +19,7 @@ import {NgaModule} from "../theme/nga.module";
 
 import {Camera} from '@ionic-native/camera';
 import {IonicImageViewerModule} from "ionic-img-viewer";
+import {PopoverPage} from "../pages/popover/popover";
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import {IonicImageViewerModule} from "ionic-img-viewer";
     HomePage,
     TabsPage,
     LoginPage,
-    CheckPage
-
+    CheckPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -47,8 +48,8 @@ import {IonicImageViewerModule} from "ionic-img-viewer";
     HomePage,
     TabsPage,
     LoginPage,
-    CheckPage
-
+    CheckPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,

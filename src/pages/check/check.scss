@@ -56,4 +56,15 @@ page-check {
   .item.item-md .checkbox-md {
     margin: 9px 6px 9px 4px;
   }
+
+  .check-content {
+    .no-content {
+      text-align: center;
+    }
+
+    .multi-content {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }
