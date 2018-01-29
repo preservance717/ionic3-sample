@@ -21,6 +21,21 @@
       <ion-icon name="ionic" item-start></ion-icon>
       关于密码
     </ion-item>
+    <ion-item (click)="createCode()">
+      <ion-icon name="barcode" item-start></ion-icon>
+      <span>生成二维码</span>
+    </ion-item>
+    <ion-item (click)="scanCode()">
+      <ion-icon name="qr-scanner" item-start></ion-icon>
+      <span>扫描二维码</span>
+    </ion-item>
+    <ion-card *ngIf="scannedCode">
+      <ion-card-content>
+        <p>cancelled: {{scannedCode.cancelled}}</p>
+        <p>format: {{scannedCode.format}}</p>
+        <p>text: {{scannedCode.text}}</p>
+      </ion-card-content>
+    </ion-card>
     <button ion-button round class="logout" (click)="logout()">退出登录</button>
   </ion-list>
 </ion-content>

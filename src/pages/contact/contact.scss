@@ -14,3 +14,15 @@ page-contact {
     width: 99%;
   }
 }
+
+show-qr-code{
+  .back-button{
+    display: block;
+  }
+  .qrcode{
+    text-align: center;
+  }
+  .scroll-content{
+    top: 25%;
+  }
+}

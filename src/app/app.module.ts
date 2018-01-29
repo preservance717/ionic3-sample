@@ -4,7 +4,7 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 
 import {AboutPage} from '../pages/about/about';
-import {ContactPage} from '../pages/contact/contact';
+import {ContactPage, ShowQRCode} from '../pages/contact/contact';
 import {HomePage} from '../pages/home/home';
 import {TabsPage} from '../pages/tabs/tabs';
 
@@ -19,7 +19,12 @@ import {NgaModule} from "../theme/nga.module";
 
 import {Camera} from '@ionic-native/camera';
 import {IonicImageViewerModule} from "ionic-img-viewer";
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 import {PopoverPage} from "../pages/popover/popover";
+import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
+// import {QRScanner} from "@ionic-native/qr-scanner";
+import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import {PopoverPage} from "../pages/popover/popover";
     TabsPage,
     LoginPage,
     CheckPage,
-    PopoverPage
+    PopoverPage,
+    ShowQRCode
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,7 @@ import {PopoverPage} from "../pages/popover/popover";
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicImageViewerModule,
+    NgxQRCodeModule,
     NgaModule,
   ],
   bootstrap: [IonicApp],
@@ -49,14 +56,18 @@ import {PopoverPage} from "../pages/popover/popover";
     TabsPage,
     LoginPage,
     CheckPage,
-    PopoverPage
+    PopoverPage,
+    ShowQRCode
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClientModule,
-    Camera
+    Camera,
+    LocalNotifications,
+    // QRScanner,
+    BarcodeScanner
   ]
 })
 export class AppModule {

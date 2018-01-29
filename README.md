@@ -1,1 +1,0 @@
-# ionic3-sample
