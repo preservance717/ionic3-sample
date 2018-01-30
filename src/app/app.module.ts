@@ -25,6 +25,7 @@ import {PopoverPage} from "../pages/popover/popover";
 import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 // import {QRScanner} from "@ionic-native/qr-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import {GuidePage} from "../pages/guide/guide";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner";
     LoginPage,
     CheckPage,
     PopoverPage,
-    ShowQRCode
+    ShowQRCode,
+    GuidePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner";
     LoginPage,
     CheckPage,
     PopoverPage,
-    ShowQRCode
+    ShowQRCode,
+    GuidePage
   ],
   providers: [
     StatusBar,

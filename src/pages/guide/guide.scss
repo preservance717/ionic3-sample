@@ -1,0 +1,36 @@
+page-guide {
+  .title {
+    text-align: center;
+  }
+  .scroll-content {
+    padding: 0 0 16px 0 !important;
+  }
+  .slide-images {
+    height: 180px;
+  }
+  ion-slide {
+    width: 100%;
+    .slide-image {
+      min-height: 25%;
+      max-width: 100%;
+    }
+  }
+  .toolbar-background {
+    background: #fff;
+    border-color: transparent;
+  }
+  b {
+    color: #000000;
+  }
+    .app-list {
+      padding: 16px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .app {
+        text-align: center;
+        width: 25%;
+      }
+    }
+}

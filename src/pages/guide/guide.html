@@ -1,0 +1,33 @@
+<!--
+  Generated template for the GuidePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>主页</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="slide-images">
+    <ion-slides *ngIf="slideImages" pager>
+      <ion-slide *ngFor="let image of slideImages">
+        <img [src]="image.src" alt="" class="slide-image">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="app-content">
+    <div class="app-list" *ngIf="appList">
+      <div class="app" *ngFor="let app of appList" (click)="toggle(app)">
+        <img [src]="app.src" alt="" style="width: 5rem; height: 5rem">
+        <div>{{app.name}}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
