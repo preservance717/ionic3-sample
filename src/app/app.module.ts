@@ -25,6 +25,7 @@ import {PopoverPage} from "../pages/popover/popover";
 import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 // import {QRScanner} from "@ionic-native/qr-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import {GuidePage} from "../pages/guide/guide";
 
 import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -43,7 +44,8 @@ import {GlobalService} from "./global.service";
     LoginPage,
     CheckPage,
     PopoverPage,
-    ShowQRCode
+    ShowQRCode,
+    GuidePage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {GlobalService} from "./global.service";
     LoginPage,
     CheckPage,
     PopoverPage,
-    ShowQRCode
+    ShowQRCode,
+    GuidePage
   ],
   providers: [
     StatusBar,

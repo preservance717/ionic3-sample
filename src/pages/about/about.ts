@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {LocalNotifications} from '@ionic-native/local-notifications';
 // import {QRScanner, QRScannerStatus} from "@ionic-native/qr-scanner";
 import {BarcodeScanner, BarcodeScannerOptions} from "@ionic-native/barcode-scanner";
+import {GlobalService} from "../../app/global.service";
 
 @Component({
   selector: 'page-about',
@@ -11,16 +12,12 @@ import {BarcodeScanner, BarcodeScannerOptions} from "@ionic-native/barcode-scann
 export class AboutPage {
   name = 'strawberry';
   constructor(public navCtrl: NavController,
-              private localNotifications: LocalNotifications,
+              private globalService: GlobalService,
               // private qrScanner: QRScanner,
               ) {}
 
   upload(data) {
     console.log(data);
-    this.localNotifications.schedule({
-      id: 1,
-      title: '文件上传成功',
-      text: '点击查看更过选项',
-    });
+    this.globalService.notificationShow(0,"任务上传","巡检任务上传成功！");
   }
 }
