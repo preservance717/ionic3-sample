@@ -21,11 +21,13 @@ import {Camera} from '@ionic-native/camera';
 import {IonicImageViewerModule} from "ionic-img-viewer";
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-import {PopoverPage} from "../pages/popover/popover";
 import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 // import {QRScanner} from "@ionic-native/qr-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {GuidePage} from "../pages/guide/guide";
+import {SQLite} from "@ionic-native/sqlite";
+import { File } from '@ionic-native/file';
+import {AppService} from "./app.service";
 
 @NgModule({
   declarations: [
@@ -36,9 +38,8 @@ import {GuidePage} from "../pages/guide/guide";
     TabsPage,
     LoginPage,
     CheckPage,
-    PopoverPage,
     ShowQRCode,
-    GuidePage
+    GuidePage,
   ],
   imports: [
     BrowserModule,
@@ -58,11 +59,11 @@ import {GuidePage} from "../pages/guide/guide";
     TabsPage,
     LoginPage,
     CheckPage,
-    PopoverPage,
     ShowQRCode,
-    GuidePage
+    GuidePage,
   ],
   providers: [
+    AppService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -70,7 +71,9 @@ import {GuidePage} from "../pages/guide/guide";
     Camera,
     LocalNotifications,
     // QRScanner,
-    BarcodeScanner
+    BarcodeScanner,
+    SQLite,
+    File
   ]
 })
 export class AppModule {

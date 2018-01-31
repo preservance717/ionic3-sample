@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
 import {
   IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController,
-  PopoverController
 } from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Validators, AbstractControl, FormGroup, FormBuilder} from "@angular/forms";
 import {CheckService} from "./check.service";
-import {PopoverPage} from "../popover/popover";
 
 /**
  * Generated class for the CheckPage page.
@@ -29,9 +27,7 @@ export class CheckPage {
   name: AbstractControl;
   detail: AbstractControl;
   checkForm: FormGroup;
-  checkParams: any;
-  checkContent: any;
-  checkContentKeys: any = [];
+  checkParams: any = {};
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -40,8 +36,7 @@ export class CheckPage {
               private camera: Camera,
               public viewCtrl: ViewController,
               private fb: FormBuilder,
-              private _service: CheckService,
-              public popoverCtrl: PopoverController) {
+              private _service: CheckService) {
     this.projectName = this.navParams.get('name');
   }
 
@@ -148,15 +143,8 @@ export class CheckPage {
     // this.images
   }
 
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage);
-    popover.present({
-      ev: myEvent
-    });
-    popover.onDidDismiss(data => {
-      this.checkContent = data;
-      this.checkContentKeys = Object.keys(this.checkContent);
-    })
+  selectState(type, state) {
+    this.checkParams[type] = state;
   }
 
   isArray(data) {
@@ -174,7 +162,6 @@ export class CheckPage {
 
   dismiss() {
     // this.checkParams = Object.assign(this.checkParams, {images: this.images, checkContent:this.checkContent});
-    console.log("value", this.checkParams);
     // this._service.checkInfo(this.checkParams).then(res=>{
     //
     // })

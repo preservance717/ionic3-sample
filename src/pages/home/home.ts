@@ -9,7 +9,7 @@ import {HomeService} from "./home.service";
   providers:[HomeService]
 })
 export class HomePage {
-  name = 'woody';
+  name = '云南华丽高速22合同段';
   constructor(public navCtrl: NavController,
               private _service:HomeService,
               public modalCtrl: ModalController) {

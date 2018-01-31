@@ -3,7 +3,7 @@
     <ion-title>表单信息</ion-title>
 
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">
+      <button ion-button (click)="dismiss()" style="font-size: 2rem;">
         <span ion-text color="primary" showWhen="ios">complete</span>
         <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
       </button>
@@ -17,32 +17,61 @@
       <ion-list>
         <ion-item>
           <ion-label floating>项目名称</ion-label>
-          <ion-input type="text" [formControl]="name"></ion-input>
+          <ion-input type="text" [formControl]="name" disabled="true"></ion-input>
         </ion-item>
-        <!--<ion-item style="border: 0px;">-->
-        <!--<ion-label floating>详细内容</ion-label>-->
-        <!--<ion-textarea rows="6" [formControl]="detail"></ion-textarea>-->
-        <!--</ion-item>-->
 
-        <ion-item class="check-content">
-          <button (click)="presentPopover($event)" ion-button color="light">详细内容</button>
-          <div *ngIf="!checkContent" class="no-content">
-            <span>暂无内容</span>
-          </div>
-          <div *ngIf="checkContent">
-            <div *ngFor="let key of checkContentKeys">
-              <div *ngIf="isArray(checkContent[key]) == false">
-                {{key}}:&nbsp;&nbsp;&nbsp;&nbsp;{{checkContent[key]}}
-              </div>
-              <div *ngIf="isArray(checkContent[key]) == true" class="multi-content">
-                <span>{{key}}:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <div *ngFor="let item of checkContent[key]">
-                  {{ item }},
-                </div>
-              </div>
+        <div class="check-content">
+          <ion-list radio-group>
+            <div class="check-header">
+              原材料及半成品现场堆放情况
             </div>
-          </div>
-        </ion-item>
+            <div class="state">
+              <ion-item>
+                <ion-label>合格</ion-label>
+                <ion-radio value="qualified" (click)="selectState('material', 'qualified')"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>不合格</ion-label>
+                <ion-radio value="unqualified" (click)="selectState('material', 'unqualified')"></ion-radio>
+              </ion-item>
+            </div>
+          </ion-list>
+
+          <ion-list radio-group>
+            <div class="check-header">
+              结构物实测实量
+            </div>
+            <div class="state">
+              <ion-item>
+                <ion-label>合格</ion-label>
+                <ion-radio value="qualified" (click)="selectState('structure', 'qualified')"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>不合格</ion-label>
+                <ion-radio value="unqualified" (click)="selectState('structure', 'unqualified')"></ion-radio>
+              </ion-item>
+            </div>
+          </ion-list>
+
+          <ion-list radio-group>
+            <div class="check-header">
+              预埋预留钢筋位置及保护情况
+            </div>
+            <div class="state">
+              <ion-item>
+                <ion-label>合格</ion-label>
+                <ion-radio value="qualified" (click)="selectState('rebar', 'qualified')"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>不合格</ion-label>
+                <ion-radio value="unqualified" (click)="selectState('rebar', 'unqualified')"></ion-radio>
+              </ion-item>
+            </div>
+          </ion-list>
+        </div>
       </ion-list>
 
       <div>
