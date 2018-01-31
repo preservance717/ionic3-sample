@@ -26,6 +26,13 @@ import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 // import {QRScanner} from "@ionic-native/qr-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 
+import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
+import { Geolocation } from '@ionic-native/geolocation';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+
+import {File} from '@ionic-native/file';
+import {GlobalService} from "./global.service";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -67,7 +74,12 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner";
     Camera,
     LocalNotifications,
     // QRScanner,
-    BarcodeScanner
+    BarcodeScanner,
+    BackgroundGeolocation,
+    Geolocation,
+    LocationTrackerProvider,
+    File,
+    GlobalService
   ]
 })
 export class AppModule {

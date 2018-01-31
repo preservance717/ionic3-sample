@@ -1,12 +1,15 @@
 import {Component} from '@angular/core';
 import {
   IonicPage, NavController, NavParams, ActionSheetController, Platform, ViewController,
-  PopoverController
+  PopoverController, LoadingController
 } from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Validators, AbstractControl, FormGroup, FormBuilder} from "@angular/forms";
 import {CheckService} from "./check.service";
 import {PopoverPage} from "../popover/popover";
+
+import { LocationTrackerProvider } from '../../providers/location-tracker/location-tracker';
+import {GlobalService} from "../../app/global.service";
 
 /**
  * Generated class for the CheckPage page.
@@ -41,8 +44,23 @@ export class CheckPage {
               public viewCtrl: ViewController,
               private fb: FormBuilder,
               private _service: CheckService,
-              public popoverCtrl: PopoverController) {
+              public popoverCtrl: PopoverController,
+              public locationTracker: LocationTrackerProvider,
+              public loadingCtrl: LoadingController,private globalService:GlobalService) {
     this.projectName = this.navParams.get('name');
+    this.globalService.presentLoading(0,"正在加载...",200);
+  }
+
+
+  //开始定位
+  startTracker(){
+    console.log("//开启定位巡查服务");
+    this.locationTracker.startTracking();
+  }
+  //停止定位
+  stopTracker(){
+    console.log("//关闭定位巡查服务");
+    this.locationTracker.stopTracking();
   }
 
   ionViewWillEnter() {
@@ -170,9 +188,11 @@ export class CheckPage {
   goBack() {
     // this.navCtrl.pop();
     this.viewCtrl.dismiss();
+
   }
 
   dismiss() {
+    this.stopTracker();
     // this.checkParams = Object.assign(this.checkParams, {images: this.images, checkContent:this.checkContent});
     console.log("value", this.checkParams);
     // this._service.checkInfo(this.checkParams).then(res=>{

@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {TabsPage} from "../tabs/tabs";
 import {AbstractControl, FormGroup, Validators, FormBuilder} from "@angular/forms";
 import {loginService} from "./login.service";
+import {File} from '@ionic-native/file';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,18 +23,25 @@ export class LoginPage {
   password: AbstractControl;
   loginForm: FormGroup;
 
-  shouldScroll:boolean = false;
+  shouldScroll: boolean = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private fb: FormBuilder,
               private _service: loginService,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController, private file: File) {
   }
 
   ionViewDidLoad() {
+    this.file.createDir(this.file.externalRootDirectory, 'mydir', true).
+    then(_ =>console.log('Directory exists')).
+    catch(err => console.log('Directory doesnt exist'));
+
+    console.log("createDir......");
+
     console.log('ionViewDidLoad LoginPage');
     this.buildForm();
+
   }
 
   buildForm() {

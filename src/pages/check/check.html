@@ -10,14 +10,13 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content no-bounce>
   <div *ngIf="!bigImageSrc&&checkForm">
     <form [formGroup]="checkForm">
       <ion-list>
         <ion-item>
           <ion-label floating>项目名称</ion-label>
-          <ion-input type="text" [formControl]="name"></ion-input>
+          <ion-input readonly="true" type="text" [formControl]="name"></ion-input>
         </ion-item>
         <!--<ion-item style="border: 0px;">-->
         <!--<ion-label floating>详细内容</ion-label>-->
@@ -59,7 +58,9 @@
           </div>
         </div>
       </div>
-
+      <div >
+        <span class="label-title">Location: {{locationTracker.lat}},{{locationTracker.lng}}</span>
+      </div>
       <div>
         <span class="label-title">状态</span>
         <div class="state-box">
