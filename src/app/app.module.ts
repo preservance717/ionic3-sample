@@ -28,6 +28,7 @@ import {GuidePage} from "../pages/guide/guide";
 import {SQLite} from "@ionic-native/sqlite";
 import { File } from '@ionic-native/file';
 import {AppService} from "./app.service";
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {AppService} from "./app.service";
     IonicModule.forRoot(MyApp),
     IonicImageViewerModule,
     NgxQRCodeModule,
+    ChartsModule,
     NgaModule,
   ],
   bootstrap: [IonicApp],

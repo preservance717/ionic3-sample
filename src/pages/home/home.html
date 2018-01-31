@@ -2,42 +2,79 @@
   <ion-navbar>
     <ion-title>待办</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="puppies">
+        总体
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        项目数
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="list-avatar-page">
-  <!--<button ><ion-icon name="add"></ion-icon>add</button>-->
-  <ion-list>
-    <ion-item>
-      <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
-      </ion-avatar>
-      <h3>云南华丽高速22合同段</h3>
-      <p>三川连接线盖板涵LK3+203左幅侧墙</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
-      </ion-avatar>
-      <h3>Woody</h3>
-      <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
-      </ion-avatar>
-      <h3>Woody</h3>
-      <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
-      </ion-avatar>
-      <h3>Woody</h3>
-      <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
-    </ion-item>
-  </ion-list>
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'puppies'">
+      <div>
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <!--<button (click)="randomize()">Update</button>-->
+      </div>
+
+      <div style="display: block">
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [colors]="doughnutChartColors"
+                [options]="doughnutChartOptions"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </ion-list>
+    <ion-list *ngSwitchCase="'kittens'">
+      <ion-item>
+        <ion-avatar item-start>
+          <span>{{name | name2avatar}}</span>
+        </ion-avatar>
+        <h3>云南华丽高速22合同段</h3>
+        <p>三川连接线盖板涵LK3+203左幅侧墙</p>
+        <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <span>{{name | name2avatar}}</span>
+        </ion-avatar>
+        <h3>Woody</h3>
+        <p>This town ain't big enough for the two of us!</p>
+        <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <span>{{name | name2avatar}}</span>
+        </ion-avatar>
+        <h3>Woody</h3>
+        <p>This town ain't big enough for the two of us!</p>
+        <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <span>{{name | name2avatar}}</span>
+        </ion-avatar>
+        <h3>Woody</h3>
+        <p>This town ain't big enough for the two of us!</p>
+        <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
