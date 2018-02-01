@@ -65,6 +65,7 @@ import {ChartsModule} from "ng2-charts";
     GuidePage,
   ],
   providers: [
+    File,
     AppService,
     StatusBar,
     SplashScreen,
@@ -74,8 +75,7 @@ import {ChartsModule} from "ng2-charts";
     LocalNotifications,
     // QRScanner,
     BarcodeScanner,
-    SQLite,
-    File
+    SQLite
   ]
 })
 export class AppModule {

@@ -8,13 +8,13 @@ import {Injectable} from "@angular/core";
 export class AppService{
   constructor(private sqlite: SQLite) { }
 
-  initDB(){
+  initDB(location){
     this.sqlite.create({
       name: 'data.db',
-      location: 'android/data/gaole'
+      location: location
     })
       .then((db: SQLiteObject) => {
-        db.executeSql('create table danceMoves(name VARCHAR(32))', {})
+        db.executeSql('create table q_user(name VARCHAR(32))', {})
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
       })

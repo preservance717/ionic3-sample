@@ -21,8 +21,11 @@ show-qr-code{
   }
   .qrcode{
     text-align: center;
+    img{
+      width: 100%;
+    }
   }
   .scroll-content{
-    top: 25%;
+    top: 10%;
   }
 }
