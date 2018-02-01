@@ -24,11 +24,12 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 // import {QRScanner} from "@ionic-native/qr-scanner";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
-import {GuidePage} from "../pages/guide/guide";
+import {GuidePage, ShowScanCode} from "../pages/guide/guide";
 import {SQLite} from "@ionic-native/sqlite";
 import { File } from '@ionic-native/file';
 import {AppService} from "./app.service";
 import {ChartsModule} from "ng2-charts";
+import {MessagePage} from "../pages/message/message";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import {ChartsModule} from "ng2-charts";
     CheckPage,
     ShowQRCode,
     GuidePage,
+    MessagePage,
+    ShowScanCode
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,8 @@ import {ChartsModule} from "ng2-charts";
     CheckPage,
     ShowQRCode,
     GuidePage,
+    MessagePage,
+    ShowScanCode
   ],
   providers: [
     File,

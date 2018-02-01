@@ -1,0 +1,47 @@
+<!--
+  Generated template for the MessagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>消息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item (click)="reivewDetail(name1, '请做好关于清西大桥土建B标检查的准备工作')">
+      <ion-avatar item-start>
+        <span>{{name1 | name2avatar}}</span>
+      </ion-avatar>
+      <div class="detail">
+        <div class="detail-content">
+          <span>清西大桥土建B标检查通知！</span>
+          <p>请做好关于清西大桥土建B标检查的准备工作</p>
+        </div>
+        <div>
+          <span class="date">2018-01-01</span>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item (click)="reivewDetail(name2, '关于施工期间安全帽没有佩戴的整改通知')">
+      <ion-avatar item-start>
+        <span>{{name2 | name2avatar}}</span>
+      </ion-avatar>
+      <div class="detail">
+        <div class="detail-content">
+          <span>新疆项目整改通知</span>
+          <p>关于施工期间安全帽没有佩戴的整改通知！</p>
+        </div>
+        <div>
+          <span class="date">2018-02-01</span>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

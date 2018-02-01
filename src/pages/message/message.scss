@@ -1,0 +1,26 @@
+page-message {
+  .back-button{
+    display: block;
+  }
+
+  ion-avatar{
+    text-align: center;
+    line-height: 40px;
+    background: #488aff;
+    border-radius: 40px;
+  }
+
+  .detail{
+    display: flex;
+    .detail-content{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .date{
+    //float: right;
+  }
+
+}

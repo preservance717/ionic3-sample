@@ -5,13 +5,23 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>主页</ion-title>
+    <ion-buttons left>
+      <button ion-button clear (click)="scanCode()">
+        <ion-icon name="barcode" md="md-barcode" style="font-size: 2.4rem">
+        </ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title style="text-align: center">主页</ion-title>
+    <ion-buttons right>
+      <button id="notification-button" ion-button clear (click)="openMessage()">
+        <ion-icon name="notifications" style="font-size: 2.4rem">
+          <ion-badge id="notifications-badge" color="danger">2</ion-badge>
+        </ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <div class="slide-images">
