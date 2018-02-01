@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import {HomePage} from "../home/home";
+import {GlobalService} from "../../app/global.service";
 
 /**
  * Generated class for the GuidePage page.
@@ -18,7 +19,7 @@ export class GuidePage {
   slideImages: any;
   appList: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private globalService:GlobalService) {
     this.slideImages = [
       {src: './assets/imgs/guide/zhi.png'},
       {src: './assets/imgs/guide/quality.png'},
@@ -40,6 +41,8 @@ export class GuidePage {
   }
 
   toggle(data){
+    this.globalService.presentLoading(0,"正在加载...",1000);
+
     if(data.name == '质检'){
       this.navCtrl.push(HomePage);
     }else {

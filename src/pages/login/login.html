@@ -13,13 +13,20 @@
 <!--</ion-header>-->
 
 
-<ion-content padding *ngIf="loginForm">
-  <div ion-fixed>
+<ion-content *ngIf="loginForm">
+  <div class="slide-images">
+    <ion-slides *ngIf="slideImages" pager loop="true" autoplay="2000">
+      <ion-slide *ngFor="let image of slideImages">
+        <img [src]="image.src" alt="" class="slide-image">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="app-content" style="margin-top:30px;">
     <div class="login-part">
-      <img src="./assets/imgs/login/hello.jpg" alt="">
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!--<img src="./assets/imgs/login/hello.jpg" alt="">-->
+      <form [formGroup]="loginForm" (ngSubmit)="loginbefor()">
         <ion-list class="login-form">
-          <ion-item>
+          <ion-item style="border:0px;">
             <ion-label floating style="text-align: inherit;">
               <img src="./assets/imgs/login/login.png" style="vertical-align: middle;width: 20px;height: 20px;margin: 0px 5px 0px 0px;">用户名
             </ion-label>
@@ -33,7 +40,7 @@
           </ion-item>
         </ion-list>
 
-        <button ion-button color="light" round  type="submit">登录</button>
+        <button ion-button  round  type="submit" style="margin-top:50px;width:95%;height:45px; color:white;">登录</button>
       </form>
     </div>
 

@@ -4,6 +4,7 @@ import {TabsPage} from "../tabs/tabs";
 import {AbstractControl, FormGroup, Validators, FormBuilder} from "@angular/forms";
 import {loginService} from "./login.service";
 import {File} from '@ionic-native/file';
+import {GlobalService} from "../../app/global.service";
 
 /**
  * Generated class for the LoginPage page.
@@ -23,22 +24,32 @@ export class LoginPage {
   password: AbstractControl;
   loginForm: FormGroup;
 
+  slideImages: any;
+
   shouldScroll: boolean = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private fb: FormBuilder,
               private _service: loginService,
-              private toastCtrl: ToastController, private file: File) {
+              private toastCtrl: ToastController, private file: File,private globalService:GlobalService) {
+
+    this.slideImages = [
+      {src: './assets/imgs/guide/zhi.png'},
+      {src: './assets/imgs/guide/quality.png'},
+      {src: './assets/imgs/guide/jiankong.png'},
+      {src: './assets/imgs/guide/gx.png'},
+      {src: './assets/imgs/guide/bhz.png'}
+    ]
+
+    // this.file.createDir(this.file.externalRootDirectory, 'mydir', true).
+    // then(_ =>console.log('Directory exists')).
+    // catch(err => console.log('Directory doesnt exist'));
   }
 
+
+
   ionViewDidLoad() {
-    this.file.createDir(this.file.externalRootDirectory, 'mydir', true).
-    then(_ =>console.log('Directory exists')).
-    catch(err => console.log('Directory doesnt exist'));
-
-    console.log("createDir......");
-
     console.log('ionViewDidLoad LoginPage');
     this.buildForm();
 
@@ -49,12 +60,17 @@ export class LoginPage {
       'username': ['', Validators.compose([Validators.required])],
       'password': ['', Validators.compose([Validators.required])]
     });
-
+''
     this.username = this.loginForm.controls['username'];
     this.password = this.loginForm.controls['password'];
   }
 
+  loginbefor() {
+    this.globalService.presentLoading(0,"正在登陆...",1000);
+    this.login();
+  }
   login() {
+
     this.navCtrl.push(TabsPage)
     // this._service.login(this.loginForm.value.username)
     //   .then(res => {

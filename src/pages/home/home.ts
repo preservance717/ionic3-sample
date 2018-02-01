@@ -3,6 +3,7 @@ import {NavController, ModalController} from 'ionic-angular';
 import {CheckPage} from "../check/check";
 import {HomeService} from "./home.service";
 import { LocationTrackerProvider } from '../../providers/location-tracker/location-tracker';
+import {GlobalService} from "../../app/global.service";
 
 @Component({
   selector: 'page-home',
@@ -10,10 +11,10 @@ import { LocationTrackerProvider } from '../../providers/location-tracker/locati
   providers:[HomeService]
 })
 export class HomePage {
-  name = 'woody';
+  name = '云';
   constructor(public navCtrl: NavController,
               private _service:HomeService,
-              public modalCtrl: ModalController,public locationTracker: LocationTrackerProvider) {
+              public modalCtrl: ModalController,public locationTracker: LocationTrackerProvider,private globalService:GlobalService) {
 
   }
 
@@ -40,10 +41,11 @@ export class HomePage {
   }
 
   start(project){
+    this.globalService.presentLoading(0,"正在加载...",1000);
     // this.navCtrl.push(CheckPage)
     let modal = this.modalCtrl.create(CheckPage, project);
     modal.present();
-
+    //开启定位巡查
     this.startTracker();
   }
 

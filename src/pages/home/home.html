@@ -7,37 +7,37 @@
 <ion-content padding class="list-avatar-page">
   <!--<button ><ion-icon name="add"></ion-icon>add</button>-->
   <ion-list>
-    <ion-item>
+    <ion-item style="border:0px; padding-left:0px;margin-left:0px;" (click)="start({'name':name})">
       <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
+        <span>{{'云' | name2avatar}}</span>
       </ion-avatar>
-      <h3>云南华丽高速22合同段</h3>
-      <p>三川连接线盖板涵LK3+203左幅侧墙</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      <h2 style="margin:0px;">云南华丽高速22合同段</h2>
+      <p style="font-size:1.3rem;">三川连接线盖板涵LK3+203左幅侧墙壁</p>
+      <button ion-button clear item-end >开始</button>
     </ion-item>
-    <ion-item>
+    <ion-item style=" padding-left:0px;margin-left:0px;" (click)="start({'name':name})">
       <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
+        <span>{{'川' | name2avatar}}</span>
       </ion-avatar>
-      <h3>Woody</h3>
+      <h2 style="margin:0px;">四川盆地开发工程</h2>
       <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      <button ion-button clear item-end >开始</button>
     </ion-item>
-    <ion-item>
+    <ion-item style=" padding-left:0px;margin-left:0px;" (click)="start({'name':name})">
       <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
+        <span>{{'新' | name2avatar}}</span>
       </ion-avatar>
-      <h3>Woody</h3>
+      <h2 style="margin:0px;">新疆PPP项目工程</h2>
       <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      <button ion-button clear item-end >开始</button>
     </ion-item>
-    <ion-item>
+    <ion-item style=" padding-left:0px;margin-left:0px;" (click)="start({'name':name})">
       <ion-avatar item-start>
-        <span>{{name | name2avatar}}</span>
+        <span>{{'黑' | name2avatar}}</span>
       </ion-avatar>
-      <h3>Woody</h3>
+      <h2 style="margin:0px;">黑龙江松花江工程</h2>
       <p>This town ain't big enough for the two of us!</p>
-      <button ion-button clear item-end (click)="start({'name':name})">开始</button>
+      <button ion-button clear item-end >开始</button>
     </ion-item>
   </ion-list>
 </ion-content>
