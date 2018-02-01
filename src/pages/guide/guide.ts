@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams, AlertController, ViewController, Mo
 import {HomePage} from "../home/home";
 import {MessagePage} from "../message/message";
 import {BarcodeScannerOptions, BarcodeScanner} from "@ionic-native/barcode-scanner";
+import {GlobalService} from "../../app/global.service";
 
 /**
  * Generated class for the GuidePage page.
@@ -26,7 +27,8 @@ export class GuidePage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               private barcodeScanner: BarcodeScanner,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              private globalService:GlobalService) {
     this.slideImages = [
       {src: './assets/imgs/guide/zhi.png'},
       {src: './assets/imgs/guide/quality.png'},
@@ -47,8 +49,10 @@ export class GuidePage {
     console.log('ionViewDidLoad GuidePage');
   }
 
-  toggle(data) {
-    if (data.name == '质检') {
+  toggle(data){
+    this.globalService.presentLoading(0,"正在加载...",1000);
+
+    if(data.name == '质检'){
       this.navCtrl.push(HomePage);
     } else {
       let alert = this.alertCtrl.create({

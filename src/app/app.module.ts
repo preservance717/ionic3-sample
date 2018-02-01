@@ -31,6 +31,12 @@ import {AppService} from "./app.service";
 import {ChartsModule} from "ng2-charts";
 import {MessagePage} from "../pages/message/message";
 
+import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
+import { Geolocation } from '@ionic-native/geolocation';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+
+import {GlobalService} from "./global.service";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -80,7 +86,11 @@ import {MessagePage} from "../pages/message/message";
     LocalNotifications,
     // QRScanner,
     BarcodeScanner,
-    SQLite
+    SQLite,
+    BackgroundGeolocation,
+    Geolocation,
+    LocationTrackerProvider,
+    GlobalService
   ]
 })
 export class AppModule {
