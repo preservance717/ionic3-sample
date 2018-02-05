@@ -36,6 +36,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 
 import {GlobalService} from "./global.service";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {GlobalService} from "./global.service";
     IonicImageViewerModule,
     NgxQRCodeModule,
     ChartsModule,
+    IonicStorageModule.forRoot(),
     NgaModule,
   ],
   bootstrap: [IonicApp],
